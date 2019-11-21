@@ -17,7 +17,7 @@ function getResult(a,b,c){
     square = Math.sqrt(d);
     if (d < 0) {
     	return [ null ];
-    } else if (d = 0) {
+    } else if (d == 0) {
     	return [ (-b / 2 * a) ];
     } else {
     	return [ ((-b + square) / 2 * a), ((-b - square) / 2 * a) ];
