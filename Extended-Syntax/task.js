@@ -13,16 +13,17 @@ function calculateQuadraticEquation(){
 function getResult(a,b,c){
     // код для задачи №1 писать здесь
     //return x;
-    let d = b * b - 4 * a * c,
-    square = Math.sqrt(d);
+    let d = b * b - 4 * a * c;
     if (d < 0) {
-    	return [ null ];
+    	return [];
     } else if (d == 0) {
     	return [ (-b / 2 * a) ];
     } else {
-    	return [ ((-b + square) / 2 * a), ((-b - square) / 2 * a) ];
+    	return [ ((-b + Math.sqrt(d)) / 2 * a), ((-b - Math.sqrt(d)) / 2 * a) ];
     }
 }
+
+getResult(1,-2,-3);
 
 
 function calculateAverageRating(){
@@ -31,23 +32,19 @@ function calculateAverageRating(){
     window.averageMark.textContent = averageMark;
 }
 
+
+
 function getAverageMark(marks){
     // код для задачи №2 писать здесь
     //return averageMark;
   let sum = 0;
-  if (marks.length <= 5) {
-    for (let i = 0; i < marks.length; i++) {
+  if (marks.length > 5) {
+      marks = marks.slice(0, 5);
+ 	}
+  for (let i = 0; i < marks.length; i++) {
       sum += marks[i];
     }
     return sum / marks.length;
-  } else if (marks.length > 5) {
-      marks = marks.slice(0, 5);
-      for (let i = 0; i < marks.length; i++) {
-        sum += marks[i];
-      }
-      return sum / marks.length;
-  }
-
 }
 
 getAverageMark(marks);
