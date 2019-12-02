@@ -1,19 +1,19 @@
 function getSolutions(a,b,c){
 
-    let d = b * b - 4 * a * c,
+    let d = b * b - 4 * a * c;
     if (d < 0) {
         return {
             d
         }
-    } else if (d == 0) {
-        let x1 = -b / 2 * a
+    } else if (d === 0) {
+        let x1 = -b / (2 * a);
         return {
             roots: [x1],
             d
         }
     } else {
-        let x1 = (-b + Math.sqrt(d)) / 2 * a;
-        let x2 = (-b - Math.sqrt(d)) / 2 * a;
+        let x1 = (-b + Math.sqrt(d)) / (2 * a);
+        let x2 = (-b - Math.sqrt(d)) / (2 * a);
         return {
             roots: [x1, x2],
             d
@@ -34,7 +34,7 @@ function showSolutionsMessage( a, b, c ){
     }
 }
 
-showSolutionsMessage( 2, 4, 2 );
+showSolutionsMessage( 7, 20, -3);
 
 
 let data = {
