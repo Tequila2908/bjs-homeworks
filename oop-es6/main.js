@@ -23,7 +23,6 @@ class Weapon {
     } else {
       return this.attack;
     }
-  
   }
 }
 
@@ -92,5 +91,95 @@ class StickOfStorm extends Stick {
 const test25 = new StickOfStorm();
 console.log(test25);
 test25.takeDamage(310);
-console.log(test25)
-console.log(test25.getDamage())
+console.log(test25);
+console.log(test25.getDamage());
+
+
+
+class StudentLog {
+  constructor (name) {
+    this.name = name;
+    this.obg = {};
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  addGrade(grade, subject) {
+    if (grade >= 1 && grade <= 5) {
+      if (this.obg[subject] === undefined) {
+        this.obg[subject] = [];
+        this.obg[subject].push(grade);
+        return this.obg[subject].length;
+      } else {
+          this.obg[subject].push(grade);
+          return this.obg[subject].length;
+      }
+    } else {
+      console.log(`Вы пытались поставить оценку ${grade} по предмету ${subject}. Допускаются только числа от 1 до 5.`);
+      if (this.obg[subject] === undefined) {
+        return 0;
+      }
+      return this.obg[subject].length;
+    }
+  }
+
+  getAverageBySubject(subject) {
+    if (this.obg[subject] === undefined || this.obg[subject].length === 0) {
+      return 0;
+    } 
+    let sub = this.obg[subject];
+    let sum = 0;
+    for (let i = 0; i < sub.length; i++) {
+      sum += sub[i];
+    }
+    return sum / sub.length;
+  }
+  getTotalAverage() {
+    let average = 0;
+    let allSum = 0;
+    let key = 0;
+    for (let subj in this.obg) {
+      let value = this.obg[subj];
+      let sum = 0;
+      for (let i = 0; i < value.length; i++) {
+        sum += value[i];
+      }
+      average += sum/value.length;
+      key++; 
+    }
+    if (isNaN(average / key)) {
+      return 0;
+    } 
+    return average / key;
+  }
+}
+
+const test = new StudentLog('Test');
+
+test.addGrade(2, 'algebra');
+test.addGrade(25, 'algebra');
+test.addGrade(5, 'test');
+test.addGrade(4, 'geometry');
+console.log(test.addGrade(25, 'test1')); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
