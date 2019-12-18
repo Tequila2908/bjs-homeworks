@@ -24,7 +24,21 @@ class Weapon {
       return this.attack;
     }
   }
+  isBroken() {
+    if (this.durability > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
+
+const bow = new Weapon('test', 10, 10, 10);
+bow.takeDamage(5);
+console.log(bow);
+console.log(bow.isBroken());
+bow.takeDamage(5);
+console.log(bow.isBroken());
 
 class Bow extends Weapon {
   constructor(name, attack, durability, range) {
