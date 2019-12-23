@@ -33,10 +33,17 @@ class Weapon {
   }
 }
 
-const bow = new Weapon('test', 10, 10, 10);
+const bow = new Weapon('Лук', 10, 200, 3);
+const arm = new Weapon('Рука', 1, Infinity, 1);
+const sword = new Weapon('Меч', 25, 500, 1);
+const knife = new Weapon('Нож', 5, 300, 1);
+const stick = new Weapon('Посох', 8, 300, 2);
+const longBow = new Weapon('Длинный лук', 15, 200, 4);
+const ax = new Weapon('Секира', 27, 800, 1);
+const stickOfStorm = new Weapon('Посох Бури', 10, 300, 3);
 bow.takeDamage(5);
-console.log(bow);
-console.log(bow.isBroken());
+console.log(sword);
+console.log(sword.isBroken());
 bow.takeDamage(5);
 console.log(bow.isBroken());
 
