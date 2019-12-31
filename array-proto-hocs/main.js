@@ -7,23 +7,19 @@ const sum = (a, b) => a + b;
 
 function memoize(fn, limit) {
   const results = [];
-  
   return function(a, b, ...args) {
-    for (let arg of args) {
-      b += arg; 
-    }
-    let test10 = results.find(index => compareArrays(index.args, [a, b]));
-    if (test10) {
+    let find = results.find(index => compareArrays(index.args, [a, b]));
+    if (find) {
       console.log('results');
-      return results[results.indexOf(test10)].result    
+      return results[results.indexOf(find)].result    
     } else {
       if (results.length ==  limit) {
         results.shift();
       }
-      if (!test10) {
+      if (!find) {
       let res = {
           args: [a, b],
-          result: sum (a, b)
+          result: fn (a, b)
         }
       results.push(res);
       return res.result;
