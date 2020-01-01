@@ -7,8 +7,8 @@ const sum = (a, b) => a + b;
 
 function memoize(fn, limit) {
   const results = [];
-  return function(a, b, ...args) {
-    let find = results.find(index => compareArrays(index.args, [a, b]));
+  return function(...args) {
+    let find = results.find(index => compareArrays(index.args, [...args]));
     if (find) {
       console.log('results');
       return results[results.indexOf(find)].result    
@@ -18,21 +18,24 @@ function memoize(fn, limit) {
       }
       if (!find) {
       let res = {
-          args: [a, b],
-          result: fn (a, b)
+          args: [...args],
+          result: fn (...args)
         }
       results.push(res);
+      console.log(results)
       return res.result;
       }
     }
-
   }
 }
 
 const mSum = memoize(sum, 2);
-mSum(1, 2, 3, 4);
-mSum(1, 2, 4, 3);
 mSum(1, 2);
+mSum(1, 2);
+mSum(1, 2);
+
+
+//sum(1, 2);
 //mSum(2, 4);
 //mSum(1, 2);
 //mSum(3, 5);
